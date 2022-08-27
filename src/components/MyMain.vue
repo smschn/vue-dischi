@@ -12,53 +12,22 @@
                     queen
                 </div>
             </div>
-
-                        <div class="card">
-                <div class="album_cover">
-                    img
-                </div>
-                <div class="album_title">
-                    wembley
-                </div>
-                <div class="artist_name">
-                    queen
-                </div>
-            </div>
-
-                        <div class="card">
-                <div class="album_cover">
-                    img
-                </div>
-                <div class="album_title">
-                    wembley
-                </div>
-                <div class="artist_name">
-                    queen
-                </div>
-            </div>
-
-                        <div class="card">
-                <div class="album_cover">
-                    img
-                </div>
-                <div class="album_title">
-                    wembley
-                </div>
-                <div class="artist_name">
-                    queen
-                </div>
-
-                
-
-                
-            </div>
+               
         </div>
     </main>
 </template>
 
 <script>
+import axios from 'axios' ;
+
 export default {
-    name: 'MyMain'
+    name: 'MyMain',
+    mounted() {
+        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then(response => {
+            console.log(response.data.response);
+        })
+    }
 }
 </script>
 
