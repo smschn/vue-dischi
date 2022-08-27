@@ -52,13 +52,14 @@ main {
         flex-basis: calc(100% / 6);
         margin: 20px;
         color: #fff;
+        padding: 20px;
 
         .album_cover,
         .album_title,
         .album_author,
         .album_year {
             margin: auto;
-            padding: 10px;
+            padding: 5px;
 
             img {
                 width: 150px;
@@ -68,6 +69,11 @@ main {
         .album_author,
         .album_year {
             color: $grey;
+        }
+
+        .album_title {
+            text-transform: uppercase;
+            font-weight: 600;
         }
     }
 }
