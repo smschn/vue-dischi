@@ -16,17 +16,19 @@
                 </div>
             </div>  
         </div>
-        <div class="loader" v-if="isLoading">
-            Loading data...
-        </div>
+        <MyLoader v-if="isLoading"/>
     </main>
 </template>
 
 <script>
 import axios from 'axios' ;
+import MyLoader from './MyLoader.vue';
 
 export default {
     name: 'MyMain',
+    components: {
+        MyLoader
+    },
     data() {
         return {
             albums: '',
@@ -80,11 +82,6 @@ main {
             text-transform: uppercase;
             font-weight: 600;
         }
-    }
-
-    .loader {
-        background-color: $grey;
-        height: calc(100vh - 80px);
     }
 }
 </style>
