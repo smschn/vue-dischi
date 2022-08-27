@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="container">
+         <div class="container">
             <div class="card" v-for="(album, index) in albums" v-bind:key="index">
                 <div class="album_cover">
                     <img v-bind:src="album.poster" v-bind:alt="album.title">
@@ -16,6 +16,9 @@
                 </div>
             </div>  
         </div>
+        <div class="loader" v-if="isLoading">
+            Loading data...
+        </div>
     </main>
 </template>
 
@@ -26,13 +29,15 @@ export default {
     name: 'MyMain',
     data() {
         return {
-            albums: ''
+            albums: '',
+            isLoading: true
         }
     },
     mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(response => {
             this.albums = response.data.response;
+            this.isLoading = false;
         })
     }
 }
@@ -75,6 +80,11 @@ main {
             text-transform: uppercase;
             font-weight: 600;
         }
+    }
+
+    .loader {
+        background-color: $grey;
+        height: calc(100vh - 80px);
     }
 }
 </style>
