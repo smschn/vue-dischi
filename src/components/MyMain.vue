@@ -1,7 +1,7 @@
 <template>
     <main>
          <div class="container">
-            <MyCard v-for="(album, index) in albums" v-bind:key="index" :prova="album" />
+            <MyCard v-for="(album, index) in albums" v-bind:key="index" :info="album" />
          </div>
         <MyLoader v-if="isLoading"/>
     </main>

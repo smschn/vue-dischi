@@ -1,16 +1,16 @@
 <template>
     <div class="card">
         <div class="album_cover">
-            <img v-bind:src="prova.poster" v-bind:alt="prova.title">
+            <img v-bind:src="info.poster" v-bind:alt="info.title">
         </div>
         <div class="album_title">
-            {{prova.title}}
+            {{info.title}}
         </div>
         <div class="album_author">
-            {{prova.author}}
+            {{info.author}}
         </div>
         <div class="album_year">
-            {{prova.year}}
+            {{info.year}}
         </div>
     </div>    
 </template>
@@ -19,10 +19,7 @@
 export default {
     name: 'MyCard',
     props: {
-        prova: Object
-    },
-    mounted() {
-        console.log(this.prova)
+        info: Object
     }
 }
 </script>
