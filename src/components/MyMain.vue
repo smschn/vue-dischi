@@ -1,18 +1,20 @@
 <template>
     <main>
         <div class="container">
-            <div class="card">
+            <div class="card" v-for="(album, index) in albums" v-bind:key="index">
                 <div class="album_cover">
-                    img
+                    <img v-bind:src="album.poster" v-bind:alt="album.title">
                 </div>
                 <div class="album_title">
-                    wembley
+                    {{album.title}}
                 </div>
-                <div class="artist_name">
-                    queen
+                <div class="album_author">
+                    {{album.author}}
                 </div>
-            </div>
-               
+                <div class="album_year">
+                    {{album.year}}
+                </div>
+            </div>  
         </div>
     </main>
 </template>
@@ -22,10 +24,15 @@ import axios from 'axios' ;
 
 export default {
     name: 'MyMain',
+    data() {
+        return {
+            albums: ''
+        }
+    },
     mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(response => {
-            console.log(response.data.response);
+            this.albums = response.data.response;
         })
     }
 }
@@ -38,19 +45,29 @@ export default {
 main {
     background-color: $bgMain;
     height: calc(100vh - 80px);
+    text-align: center;
 
     .card {
         background-color: $bgCard;
-        flex-basis: calc(100% / 5);
+        flex-basis: calc(100% / 6);
         margin: 20px;
         color: #fff;
 
         .album_cover,
         .album_title,
-        .artist_name {
-            width: 80%;
+        .album_author,
+        .album_year {
             margin: auto;
-            padding: 5px;
+            padding: 10px;
+
+            img {
+                width: 150px;
+            }
+        }
+        
+        .album_author,
+        .album_year {
+            color: $grey;
         }
     }
 }
