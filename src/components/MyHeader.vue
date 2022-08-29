@@ -1,6 +1,15 @@
 <template>
     <header>
-        <img src="../assets/spotify_logo.png" alt="Logo">
+        <div class="container_h">
+            <img src="../assets/spotify_logo.png" alt="Logo">
+            <select name="ciao" id="ciao2">
+                <option value="">Seleziona genere</option>
+                <option value="prova1">ciao</option>
+                <option value="prova2">sono</option>
+                <option value="prova3">un</option>
+                <option value="prova4">genere</option>
+            </select>
+        </div>
     </header>
 </template>
 
@@ -16,14 +25,13 @@ export default {
 header {
     height: 80px;
     background-color: $bgHeader;
-    position: relative;
 
-    img {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 30px;
+    .container_h {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 30px;
     }
 }
 </style>
