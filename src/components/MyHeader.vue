@@ -3,11 +3,8 @@
         <div class="container_h">
             <img src="../assets/spotify_logo.png" alt="Logo">
             <select>
-                <option value="">Seleziona genere</option>
-                <option value="prova1">ciao</option>
-                <option value="prova2">sono</option>
-                <option value="prova3">un</option>
-                <option value="prova4">genere</option>
+                <option value="scegli" id="default">Seleziona un genere</option>
+                <option v-for="(genre, index) in genresList" v-bind:key="index" v-bind:value="genre">{{genre}}</option>
             </select>
         </div>
     </header>
@@ -15,7 +12,10 @@
 
 <script>
 export default {
-    name: 'MyHeader'
+    name: 'MyHeader',
+    props: {
+        genresList: Array
+    }
 }
 </script>
 
@@ -32,6 +32,10 @@ header {
         justify-content: space-between;
         align-items: center;
         padding: 0px 30px;
+
+        select {
+            padding: 10px;
+        }
     }
 }
 </style>
