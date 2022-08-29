@@ -2,7 +2,7 @@
     <header>
         <div class="container_h">
             <img src="../assets/spotify_logo.png" alt="Logo">
-            <select name="ciao" id="ciao2">
+            <select>
                 <option value="">Seleziona genere</option>
                 <option value="prova1">ciao</option>
                 <option value="prova2">sono</option>

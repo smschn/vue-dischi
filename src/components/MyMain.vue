@@ -20,15 +20,22 @@ export default {
     },
     data() {
         return {
-            albums: '',
-            isLoading: true
+            albums: [],
+            isLoading: true,
+            genres: []
         }
     },
     mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then(response => {
-            this.albums = response.data.response;
+            this.albums = response.data.response; // response è un array di oggetti
+            this.albums.forEach( album => {
+                if (!this.genres.includes(album.genre)) {
+                    this.genres.push(album.genre);
+                }
+            });
             this.isLoading = false;
+            this.$emit('genresReady', this.genres); // preparo ad inviare array generi al padre 'app.vue'
         })
     }
 }
