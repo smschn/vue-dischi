@@ -2,8 +2,8 @@
     <header>
         <div class="container_h">
             <img src="../assets/spotify_logo.png" alt="Logo">
-            <select>
-                <option value="scegli" id="default">Seleziona un genere</option>
+            <select v-model="genreFilter" @change="chosenGenre">
+                <option value="">Seleziona un genere</option>
                 <option v-for="(genre, index) in genresList" v-bind:key="index" v-bind:value="genre">{{genre}}</option>
             </select>
         </div>
@@ -15,6 +15,17 @@ export default {
     name: 'MyHeader',
     props: {
         genresList: Array
+    },
+    data() {
+        return {
+            genreFilter: ''
+        }
+    },
+    methods: {
+        chosenGenre() {
+            console.log(this.genreFilter);
+            this.$emit('changedGenre', this.genreFilter); // invio il genere scelto al padre app.vue
+        }
     }
 }
 </script>
