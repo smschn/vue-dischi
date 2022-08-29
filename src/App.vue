@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <MyHeader />
-    <MyMain />
+    <MyMain @genresReady="getGenresList" />
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     MyHeader,
     MyMain
+  },
+  data() {
+    return {
+      genres: []
+    }
+  },
+  methods: {
+    getGenresList(genres) {
+      this.genres = genres;
+    }
   }
 }
 </script>
