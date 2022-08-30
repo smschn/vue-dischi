@@ -46,13 +46,13 @@ export default {
             if (this.genreToSearch == '') {
                 return this.albums;
             }
-            const filteredAlbums = this.albums.filter((album => {
+            const filteredAlbums = this.albums.filter(album => {
                 if (album.genre == this.genreToSearch) {
                     return true;
                 } else {
                     return false;
                 }
-            }));
+            });
             return filteredAlbums;
         }
     }
