@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         chosenGenre() {
-            console.log(this.genreFilter);
+            // console.log(`${this.genreFilter} - header.vue: genere scelto`);
             this.$emit('changedGenre', this.genreFilter); // invio il genere scelto al padre app.vue
         }
     }

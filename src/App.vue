@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MyHeader :genresList="genres" />
+    <MyHeader :genresList="genres" @changedGenre="startSearch" />
     <MyMain @genresReady="getGenresList" />
   </div>
 </template>
@@ -17,12 +17,17 @@ export default {
   },
   data() {
     return {
-      genres: []
+      genres: [],
+      chosenGenre: ''
     }
   },
   methods: {
     getGenresList(genres) {
       this.genres = genres;
+    },
+    startSearch(genreSelected) {
+      this.chosenGenre = genreSelected;
+      // console.log(`${this.chosenGenre} - app.vue: genere scelto`)
     }
   }
 }
