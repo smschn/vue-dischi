@@ -18,6 +18,9 @@ export default {
         MyLoader,
         MyCard
     },
+    props: {
+        genreToSearch: String
+    },
     data() {
         return {
             albums: [],

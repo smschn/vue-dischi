@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <MyHeader :genresList="genres" @changedGenre="startSearch" />
-    <MyMain @genresReady="getGenresList" />
+    <MyMain @genresReady="getGenresList" :genreToSearch='chosenGenre' />
   </div>
 </template>
 
