@@ -1,7 +1,7 @@
 <template>
     <main>
          <div class="container">
-            <MyCard v-for="(album, index) in getFilteredGenres" v-bind:key="index" :info="album" />
+            <MyCard v-for="(album, index) in getFilteredAlbums" v-bind:key="index" :info="album" />
          </div>
         <MyLoader v-if="isLoading"/>
     </main>
@@ -42,18 +42,18 @@ export default {
         })
     },
     computed: { // computed sempre in ascolto per cambio dati + posso usarla come variabile in <template>
-        getFilteredGenres() {
+        getFilteredAlbums() {
             if (this.genreToSearch == '') {
                 return this.albums;
             }
-            const filteredGenres = this.albums.filter((album => {
+            const filteredAlbums = this.albums.filter((album => {
                 if (album.genre == this.genreToSearch) {
                     return true;
                 } else {
                     return false;
                 }
             }));
-            return filteredGenres;
+            return filteredAlbums;
         }
     }
 }
