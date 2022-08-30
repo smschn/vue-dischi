@@ -1,7 +1,7 @@
 <template>
     <main>
          <div class="container">
-            <MyCard v-for="(album, index) in albums" v-bind:key="index" :info="album" />
+            <MyCard v-for="(album, index) in getFilteredGenres" v-bind:key="index" :info="album" />
          </div>
         <MyLoader v-if="isLoading"/>
     </main>
@@ -40,6 +40,18 @@ export default {
             this.isLoading = false;
             this.$emit('genresReady', this.genres); // preparo ad inviare array generi al padre 'app.vue'
         })
+    },
+    computed: {
+        getFilteredGenres() {
+            const filteredGenres = this.albums.filter((album => {
+                if (album.genre == this.genreToSearch) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }));
+            return filteredGenres;
+        }
     }
 }
 </script>
