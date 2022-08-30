@@ -41,7 +41,7 @@ export default {
             this.$emit('genresReady', this.genres); // preparo ad inviare array generi al padre 'app.vue'
         })
     },
-    computed: { // con una computed sempre in ascolto filtro i risultati in base al genere scelto
+    computed: { // computed sempre in ascolto per cambio dati + posso usarla come variabile in <template>
         getFilteredGenres() {
             if (this.genreToSearch == '') {
                 return this.albums;
